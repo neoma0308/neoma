@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闪租 - 冒险岛枫之传说账号租赁</title>
+    <!-- 引入外部资源 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E63946', // 冒险岛主题红
+                        secondary: '#457B9D', // 辅助蓝
+                        accent: '#F1FAEE', // 浅色背景
+                        dark: '#1D3557' // 深色文本
+                    },
+                    fontFamily: {
+                        gaming: ['"Comic Sans MS"', '"Chalkboard SE"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            }
+            .card-hover {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+        }
+    </style>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* 冒险岛风格滚动条 */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1faee;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #e63946;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d62828;
+        }
+    </style>
+</head>
+<body class="bg-accent text-dark">
+    <!-- 顶部导航栏 -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo区域 -->
+            <a href="#" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                    <i class="fa fa-map-signs text-white text-xl"></i>
+                </div>
+                <span class="font-gaming font-bold text-2xl text-primary">闪租</span>
+            </a>
+            
+            <!-- 导航链接 -->
+            <nav class="hidden md:flex items-center">
+                <a href="#accounts" class="text-dark px-4 hover:text-primary transition-colors font-medium">账号列表</a>
+                <a href="#contact" class="text-dark px-4 hover:text-primary transition-colors font-medium">联系我们</a>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button class="md:hidden text-dark text-xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Banner区域 -->
+    <section class="relative py-16 md:py-24 overflow-hidden">
+        <!-- 背景图 -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://game.gtimg.cn/images/mxdm/web20230816/index/bg8.jpg" alt="冒险岛枫之传说游戏场景" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-dark/80 to-primary/40"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-2xl">
+                <h1 class="font-gaming font-bold text-[clamp(2rem,5vw,3.5rem)] text-white leading-tight text-shadow mb-6">
+                    冒险岛枫之传说<br>极品账号 即租即玩
+                </h1>
+                <p class="text-white/90 text-[clamp(1rem,2vw,1.25rem)] mb-8 max-w-xl">
+                    精选高等级、满装备冒险岛账号，无需漫长升级，即刻体验顶级游戏乐趣，安全可靠，价格实惠。
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#accounts" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full transition-all font-semibold flex items-center">
+                        浏览账号 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 账号信息列表区域 -->
+    <section id="accounts" class="py-16 bg-accent">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-gaming font-bold text-[clamp(1.5rem,3vw,2.5rem)] text-dark mb-4">冒险岛枫之传说极品账号</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">所有账号均已实名认证，安全有保障，租后提供全程技术支持</p>
+            </div>
+            
+            <!-- 筛选器 -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button class="px-5 py-2 rounded-full bg-primary text-white text-sm font-medium">全部职业</button>
+                <button class="px-5 py-2 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-medium transition-colors">战士</button>
+                <button class="px-5 py-2 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-medium transition-colors">魔法师</button>
+                <button class="px-5 py-2 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-medium transition-colors">弓箭手</button>
+                <button class="px-5 py-2 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-medium transition-colors">飞侠</button>
+                <button class="px-5 py-2 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-medium transition-colors">海盗</button>
+            </div>
+            
+            <!-- 账号列表 - 响应式网格 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- 账号卡片 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="relative h-48">
+                        <img src="https://game.gtimg.cn/images/mxdm/web20230816/role/poster_zs_hqs.png" alt="冒险岛英雄账号展示" class="w-full h-full object-contain bg-gray-200">
+                        <div class="absolute top-3 left-3 bg-primary text-white text-xs px-2 py-1 rounded-full">
+                            热门
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-gaming font-bold text-lg">顶级黑骑</h3>
+                            <div class="flex items-center text-yellow-500">
+                                <i class="fa fa-star text-xs"></i>
+                                <span class="text-gray-700 text-sm ml-1">4.9</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <p class="text-gray-500 text-sm mb-2">等级：230级 | 职业：战士</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">远古10+10</span>
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">大伤8000万</span>
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">无视90</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center pt-3 border-t border-gray-100">
+                            <div>
+                                <span class="text-primary font-bold text-xl">¥35</span>
+                                <span class="text-gray-500 text-sm">/天</span>
+                            </div>
+                            <button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                                立即租用
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 账号卡片 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="relative h-48">
+                        <img src="https://game.gtimg.cn/images/mxdm/web20230816/role/poster_mfs_bl.png" alt="冒险岛冰雷法师账号展示" class="w-full h-full object-contain bg-gray-200">
+                        <div class="absolute top-3 left-3 bg-secondary text-white text-xs px-2 py-1 rounded-full">
+                            新品
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-gaming font-bold text-lg">顶级冰雷</h3>
+                            <div class="flex items-center text-yellow-500">
+                                <i class="fa fa-star text-xs"></i>
+                                <span class="text-gray-700 text-sm ml-1">4.7</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <p class="text-gray-500 text-sm mb-2">等级：220级 | 职业：魔法师</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">远古10+10</span>
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">大伤8000万</span>
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">无视90</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center pt-3 border-t border-gray-100">
+                            <div>
+                                <span class="text-primary font-bold text-xl">¥30</span>
+                                <span class="text-gray-500 text-sm">/天</span>
+                            </div>
+                            <button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                                立即租用
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 账号卡片 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="relative h-48">
+                        <img src="https://game.gtimg.cn/images/mxdm/web20230816/role/poster_gjs_sss.png" alt="冒险岛神射手账号展示" class="w-full h-full object-contain bg-gray-200">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-gaming font-bold text-lg">顶级神射</h3>
+                            <div class="flex items-center text-yellow-500">
+                                <i class="fa fa-star text-xs"></i>
+                                <span class="text-gray-700 text-sm ml-1">4.6</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <p class="text-gray-500 text-sm mb-2">等级：220级 | 职业：弓箭手</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">远古10+10</span>
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">大伤8000万</span>
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">无视90</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center pt-3 border-t border-gray-100">
+                            <div>
+                                <span class="text-primary font-bold text-xl">¥28</span>
+                                <span class="text-gray-500 text-sm">/天</span>
+                            </div>
+                            <button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                                立即租用
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 账号卡片 4 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="relative h-48">
+                        <img src="https://game.gtimg.cn/images/mxdm/web20230816/role/poster_fx_aysd.png" alt="冒险岛双刀账号展示" class="w-full h-full object-contain bg-gray-200">
+                        <div class="absolute top-3 left-3 bg-primary text-white text-xs px-2 py-1 rounded-full">
+                            热门
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-gaming font-bold text-lg">顶级双刀</h3>
+                            <div class="flex items-center text-yellow-500">
+                                <i class="fa fa-star text-xs"></i>
+                                <span class="text-gray-700 text-sm ml-1">4.8</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <p class="text-gray-500 text-sm mb-2">等级：220级 | 职业：飞侠</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">远古10+10</span>
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">大伤8000万</span>
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">无视90</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center pt-3 border-t border-gray-100">
+                            <div>
+                                <span class="text-primary font-bold text-xl">¥38</span>
+                                <span class="text-gray-500 text-sm">/天</span>
+                            </div>
+                            <button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                                立即租用
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 账号卡片 5 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="relative h-48">
+                        <img src="https://game.gtimg.cn/images/mxdm/web20230816/role/poster_hhs_cfdz.png" alt="冒险岛船长账号展示" class="w-full h-full object-contain bg-gray-200">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-gaming font-bold text-lg">顶级墨玄</h3>
+                            <div class="flex items-center text-yellow-500">
+                                <i class="fa fa-star text-xs"></i>
+                                <span class="text-gray-700 text-sm ml-1">4.5</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <p class="text-gray-500 text-sm mb-2">等级：220级 | 职业：海盗</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">远古10+10</span>
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">大伤8000万</span>
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">无视90</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center pt-3 border-t border-gray-100">
+                            <div>
+                                <span class="text-primary font-bold text-xl">¥25</span>
+                                <span class="text-gray-500 text-sm">/天</span>
+                            </div>
+                            <button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                                立即租用
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 账号卡片 6 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="relative h-48">
+                        <img src="https://game.gtimg.cn/images/mxdm/web20230816/role/poster_mfs_g.png" alt="冒险岛主教账号展示" class="w-full h-full object-contain bg-gray-200">
+                        <div class="absolute top-3 left-3 bg-secondary text-white text-xs px-2 py-1 rounded-full">
+                            新品
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-gaming font-bold text-lg">顶级主教</h3>
+                            <div class="flex items-center text-yellow-500">
+                                <i class="fa fa-star text-xs"></i>
+                                <span class="text-gray-700 text-sm ml-1">4.7</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <p class="text-gray-500 text-sm mb-2">等级：230级 | 职业：魔法师</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">远古10+10</span>
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">大伤8000万</span>
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">无视90</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center pt-3 border-t border-gray-100">
+                            <div>
+                                <span class="text-primary font-bold text-xl">¥30</span>
+                                <span class="text-gray-500 text-sm">/天</span>
+                            </div>
+                            <button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                                立即租用
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 加载更多按钮 -->
+            <div class="text-center mt-12">
+                <button class="border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors px-6 py-3 rounded-full font-medium">
+                    加载更多账号 <i class="fa fa-refresh ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们区域 -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="font-gaming font-bold text-[clamp(1.5rem,3vw,2rem)] text-dark mb-4">联系我们</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">扫描下方二维码添加客服微信，咨询账号详情或预约租用</p>
+            </div>
+            
+            <div class="flex justify-center">
+                <div class="bg-accent p-6 rounded-xl shadow-md text-center">
+                    <div class="w-64 h-64 mx-auto bg-white p-4 rounded-lg mb-4">
+                        <!-- 二维码占位图 -->
+                        <img src="https://game.gtimg.cn/images/mxdm/web20230816/code_download_img.png" alt="客服微信二维码" class="w-full h-full object-contain bg-gray-200">
+                    </div>
+                    <p class="font-medium">微信客服：冒险岛枫之传说闪租</p>
+                    <p class="text-gray-500 text-sm mt-2">工作时间：9:00-23:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+                        <i class="fa fa-map-signs text-white"></i>
+                    </div>
+                    <span class="font-gaming font-bold text-xl text-white">闪租</span>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400 text-sm">© 2025 闪租 - 冒险岛枫之传说账号租赁</p>
+                    <p class="text-gray-500 text-xs mt-2">请合理安排游戏时间，享受健康生活，一切解释权归闪耀公会所有</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 平滑滚动
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // 移动端菜单切换
+            const menuButton = document.querySelector('.md\\:hidden');
+            if (menuButton) {
+                menuButton.addEventListener('click', function() {
+                    const navLinks = document.querySelector('header nav');
+                    if (navLinks) {
+                        navLinks.classList.toggle('hidden');
+                        navLinks.classList.toggle('flex');
+                        navLinks.classList.toggle('flex-col');
+                        navLinks.classList.toggle('absolute');
+                        navLinks.classList.toggle('top-16');
+                        navLinks.classList.toggle('left-0');
+                        navLinks.classList.toggle('right-0');
+                        navLinks.classList.toggle('bg-white');
+                        navLinks.classList.toggle('p-4');
+                        navLinks.classList.toggle('shadow-lg');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+    
